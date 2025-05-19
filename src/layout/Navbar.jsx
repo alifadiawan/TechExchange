@@ -1,4 +1,5 @@
 import React from 'react'
+import App from '../App'
 
 const Navbar = () => {
     return (
@@ -6,10 +7,10 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16">
                     <div className="flex items-center">
-                        <div className="flex-shrink-0 flex items-center">
+                        <a href='/' className="flex-shrink-0 flex items-center">
                             <span className="text-emerald-500 font-bold text-xl">Tech</span>
                             <span className="text-gray-200 font-bold text-xl">Exchange</span>
-                        </div>
+                        </a>
                         <div className="hidden md:ml-6 md:flex md:space-x-8">
                             <a href="/" className="border-b-2 border-emerald-500 text-white px-1 pt-1 text-sm font-medium">Home</a>
                             <a href="/shop" className="border-transparent hover:border-gray-300 border-b-2 hover:text-gray-300 px-1 pt-1 text-sm font-medium">Shop</a>
@@ -24,12 +25,12 @@ const Navbar = () => {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                 </svg>
                             </a>
-                            <a href="#" className="text-gray-300 hover:text-white">
+                            <a href="" className="text-gray-300 hover:text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                 </svg>
                             </a>
-                            <a href="#" className="relative text-gray-300 hover:text-white">
+                            <a href="/shop/cart" className="relative text-gray-300 hover:text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                                 </svg>
@@ -47,7 +48,6 @@ const Navbar = () => {
                 </div>
             </div>
         </nav>
-
     )
 }
 

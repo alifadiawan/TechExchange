@@ -182,7 +182,7 @@ const Shop = () => {
                     {/* Product Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         {filteredProducts.map((product) => (
-                            <div key={product.id} className="bg-zinc-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                            <a href='/shop/detail/3e132d39-975d-4f74-9060-27e830efe285' key={product.id} className="bg-zinc-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                                 <div className="h-48 bg-zinc-800 flex items-center justify-center overflow-hidden">
                                     <img
                                         src={product.image}
@@ -205,7 +205,7 @@ const Shop = () => {
                                         </button>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         ))}
                     </div>
                 </div>
