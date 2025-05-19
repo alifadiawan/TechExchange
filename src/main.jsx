@@ -1,8 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import LandingPage from './Pages/LandingPage.jsx'
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Shop from './Pages/Shop.jsx'
 import DetailShop from './Pages/DetailShop.jsx';
 import Keranjang from './Pages/Keranjang.jsx';
