@@ -12,11 +12,10 @@ const Footer = () => {
           <div>
             <h3 className="text-white font-bold text-lg mb-4">Tautan</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-emerald-500 text-sm">Beranda</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-emerald-500 text-sm">Toko</a></li>
+              <li><a href="/" className="text-gray-400 hover:text-emerald-500 text-sm">Beranda</a></li>
+              <li><a href="/shop" className="text-gray-400 hover:text-emerald-500 text-sm">Jelajahi</a></li>
               <li><a href="#" className="text-gray-400 hover:text-emerald-500 text-sm">Jual Barang</a></li>
               <li><a href="#" className="text-gray-400 hover:text-emerald-500 text-sm">Tentang Kami</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-emerald-500 text-sm">Syarat & Ketentuan</a></li>
             </ul>
           </div>
           <div>
