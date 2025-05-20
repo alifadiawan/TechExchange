@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
 
     return (
         <nav className="bg-zinc-800 border-b border-zinc-700">
@@ -14,11 +14,51 @@ const Navbar = () => {
                             <span className="text-gray-200 font-bold text-xl">Exchange</span>
                         </a>
                         <div className="hidden md:ml-6 md:flex md:space-x-8">
-                            <a href="/" className="border-b-2 border-emerald-500 text-white px-1 pt-1 text-sm font-medium">Beranda</a>
-                            <a href="/shop" className="border-transparent hover:border-gray-300 border-b-2 hover:text-gray-300 px-1 pt-1 text-sm font-medium">Jelajahi</a>
-                            <a href="#" className="border-transparent hover:border-gray-300 border-b-2 hover:text-gray-300 px-1 pt-1 text-sm font-medium">Jual Barang</a>
-                            <a href="#" className="border-transparent hover:border-gray-300 border-b-2 hover:text-gray-300 px-1 pt-1 text-sm font-medium">Tentang Kita</a>
+                            <NavLink
+                                to="/"
+                                className={({ isActive }) =>
+                                    isActive
+                                        ? 'border-b-2 border-emerald-500 text-white px-1 pt-1 text-sm font-medium'
+                                        : 'border-transparent hover:border-gray-300 border-b-2 hover:text-gray-300 px-1 pt-1 text-sm font-medium'
+                                }
+                            >
+                                Beranda
+                            </NavLink>
+
+                            <NavLink
+                                to="/shop"
+                                className={({ isActive }) =>
+                                    isActive
+                                        ? 'border-b-2 border-emerald-500 text-white px-1 pt-1 text-sm font-medium'
+                                        : 'border-transparent hover:border-gray-300 border-b-2 hover:text-gray-300 px-1 pt-1 text-sm font-medium'
+                                }
+                            >
+                                Jelajahi
+                            </NavLink>
+
+                            <NavLink
+                                to="/listing/new-listing"
+                                className={({ isActive }) =>
+                                    isActive
+                                        ? 'border-b-2 border-emerald-500 text-white px-1 pt-1 text-sm font-medium'
+                                        : 'border-transparent hover:border-gray-300 border-b-2 hover:text-gray-300 px-1 pt-1 text-sm font-medium'
+                                }
+                            >
+                                Jual Barang
+                            </NavLink>
+
+                            <NavLink
+                                to="/about-us"
+                                className={({ isActive }) =>
+                                    isActive
+                                        ? 'border-b-2 border-emerald-500 text-white px-1 pt-1 text-sm font-medium'
+                                        : 'border-transparent hover:border-gray-300 border-b-2 hover:text-gray-300 px-1 pt-1 text-sm font-medium'
+                                }
+                            >
+                                Tentang Kita
+                            </NavLink>
                         </div>
+
                     </div>
                     <div className="flex items-center">
                         <div className="hidden md:flex items-center space-x-4">
