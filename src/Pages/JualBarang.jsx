@@ -7,7 +7,7 @@ const JualBarang = () => {
         title: '',
         description: '',
         price: '',
-        condition: 'Used - Like New',
+        condition: 'Bekas - Seperti Baru',
         category: 'Keyboard',
         location: '',
         contactInfo: ''
@@ -19,10 +19,10 @@ const JualBarang = () => {
     const [isSuccess, setIsSuccess] = useState(false);
 
     const conditions = [
-        'Used - Like New',
-        'Used - Very Good',
-        'Used - Good',
-        'Used - Acceptable'
+        'Bekas - Seperti Baru',
+        'Bekas - Sangat Bagus',
+        'Bekas - Bagus',
+        'Bekas - Layak Pakai'
     ];
 
     const categories = [
@@ -31,10 +31,10 @@ const JualBarang = () => {
         'Headset',
         'Monitor',
         'Controller',
-        'Console',
-        'PC Parts',
-        'Accessories',
-        'Other'
+        'Konsol',
+        'Komponen PC',
+        'Aksesoris',
+        'Lainnya'
     ];
 
     const handleInputChange = (e) => {
@@ -81,7 +81,7 @@ const JualBarang = () => {
                     title: '',
                     description: '',
                     price: '',
-                    condition: 'Used - Like New',
+                    condition: 'Bekas - Seperti Baru',
                     category: 'Keyboard',
                     location: '',
                     contactInfo: ''
@@ -99,20 +99,20 @@ const JualBarang = () => {
             <main className="container mx-auto px-4 py-8">
                 <div className="max-w-3xl mx-auto">
                     <div className="bg-zinc-800 rounded-lg p-6 shadow-lg">
-                        <h2 className="text-xl font-semibold text-white mb-6">List Your Used Gaming Gear</h2>
+                        <h2 className="text-xl font-semibold text-white mb-6">Jual Peralatan Gaming Bekas Anda</h2>
 
                         {isSuccess ? (
                             <div className="flex flex-col items-center justify-center py-12">
                                 <CheckCircle size={64} className="text-emerald-500 mb-4" />
-                                <h3 className="text-lg font-medium text-white">Listing Submitted Successfully!</h3>
-                                <p className="text-gray-400 mt-2">Your gaming gear has been listed on Jual Barang.</p>
+                                <h3 className="text-lg font-medium text-white">Berhasil Mengunggah Barang!</h3>
+                                <p className="text-gray-400 mt-2">Peralatan gaming Anda telah terdaftar di Jual Barang.</p>
                             </div>
                         ) : (
                             <form onSubmit={handleSubmit}>
-                                {/* Title */}
+                                {/* Judul */}
                                 <div className="mb-6">
                                     <label htmlFor="title" className="block text-sm font-medium mb-2">
-                                        Title*
+                                        Judul*
                                     </label>
                                     <input
                                         type="text"
@@ -121,15 +121,15 @@ const JualBarang = () => {
                                         value={formData.title}
                                         onChange={handleInputChange}
                                         className="w-full px-4 py-2 bg-zinc-900 border border-zinc-700 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                                        placeholder="e.g., Razer DeathAdder Elite Gaming Mouse"
+                                        placeholder="contoh: Mouse Gaming Razer DeathAdder Elite"
                                         required
                                     />
                                 </div>
 
-                                {/* Images Upload */}
+                                {/* Unggah Gambar */}
                                 <div className="mb-6">
                                     <label className="block text-sm font-medium mb-2">
-                                        Images* (up to 5)
+                                        Gambar* (maksimal 5)
                                     </label>
 
                                     {previewImages.length < 5 && (
@@ -145,8 +145,8 @@ const JualBarang = () => {
                                             />
                                             <label htmlFor="images" className="cursor-pointer flex flex-col items-center">
                                                 <Upload size={32} className="text-emerald-500 mb-2" />
-                                                <span className="text-white font-medium">Upload Photos</span>
-                                                <span className="text-gray-400 text-sm mt-1">Click to browse or drag images here</span>
+                                                <span className="text-white font-medium">Unggah Foto</span>
+                                                <span className="text-gray-400 text-sm mt-1">Klik untuk memilih atau seret gambar ke sini</span>
                                             </label>
                                         </div>
                                     )}
@@ -173,11 +173,11 @@ const JualBarang = () => {
                                     )}
                                 </div>
 
-                                {/* Price and Condition */}
+                                {/* Harga dan Kondisi */}
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                                     <div>
                                         <label htmlFor="price" className="block text-sm font-medium mb-2">
-                                            Price* (in IDR)
+                                            Harga* (dalam Rupiah)
                                         </label>
                                         <div className="relative">
                                             <span className="absolute left-4 top-2">Rp</span>
@@ -196,7 +196,7 @@ const JualBarang = () => {
 
                                     <div>
                                         <label htmlFor="condition" className="block text-sm font-medium mb-2">
-                                            Condition*
+                                            Kondisi*
                                         </label>
                                         <div className="relative">
                                             <select
@@ -216,10 +216,10 @@ const JualBarang = () => {
                                     </div>
                                 </div>
 
-                                {/* Category */}
+                                {/* Kategori */}
                                 <div className="mb-6">
                                     <label htmlFor="category" className="block text-sm font-medium mb-2">
-                                        Category*
+                                        Kategori*
                                     </label>
                                     <div className="relative">
                                         <select
@@ -238,10 +238,10 @@ const JualBarang = () => {
                                     </div>
                                 </div>
 
-                                {/* Description */}
+                                {/* Deskripsi */}
                                 <div className="mb-6">
                                     <label htmlFor="description" className="block text-sm font-medium mb-2">
-                                        Description*
+                                        Deskripsi*
                                     </label>
                                     <textarea
                                         id="description"
@@ -250,18 +250,18 @@ const JualBarang = () => {
                                         onChange={handleInputChange}
                                         rows="4"
                                         className="w-full px-4 py-2 bg-zinc-900 border border-zinc-700 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                                        placeholder="Describe your item, include details about condition, age, reason for selling, etc."
+                                        placeholder="Jelaskan barang Anda, termasuk detail kondisi, usia, alasan menjual, dll."
                                         required
                                     ></textarea>
                                     <p className="text-gray-400 text-xs mt-2">
-                                        Be detailed and honest about the condition of your gaming gear.
+                                        Berikan detail dan jelaskan kondisi peralatan gaming Anda dengan jujur.
                                     </p>
                                 </div>
 
-                                {/* Location */}
+                                {/* Lokasi */}
                                 <div className="mb-6">
                                     <label htmlFor="location" className="block text-sm font-medium mb-2">
-                                        Location*
+                                        Lokasi*
                                     </label>
                                     <input
                                         type="text"
@@ -270,15 +270,15 @@ const JualBarang = () => {
                                         value={formData.location}
                                         onChange={handleInputChange}
                                         className="w-full px-4 py-2 bg-zinc-900 border border-zinc-700 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                                        placeholder="e.g., Jakarta, Indonesia"
+                                        placeholder="contoh: Jakarta, Indonesia"
                                         required
                                     />
                                 </div>
 
-                                {/* Contact Information */}
+                                {/* Informasi Kontak */}
                                 <div className="mb-8">
                                     <label htmlFor="contactInfo" className="block text-sm font-medium mb-2">
-                                        Contact Information*
+                                        Informasi Kontak*
                                     </label>
                                     <input
                                         type="text"
@@ -287,25 +287,25 @@ const JualBarang = () => {
                                         value={formData.contactInfo}
                                         onChange={handleInputChange}
                                         className="w-full px-4 py-2 bg-zinc-900 border border-zinc-700 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                                        placeholder="e.g., WhatsApp: +62 812 3456 7890"
+                                        placeholder="contoh: WhatsApp: +62 812 3456 7890"
                                         required
                                     />
                                     <p className="text-gray-400 text-xs mt-2">
-                                        This will be visible to potential buyers.
+                                        Informasi ini akan terlihat oleh calon pembeli.
                                     </p>
                                 </div>
 
-                                {/* Submit Button */}
+                                {/* Tombol Submit */}
                                 <div className="flex justify-end">
                                     <button
                                         type="submit"
                                         disabled={isSubmitting || images.length === 0}
                                         className={`px-6 py-3 rounded-md text-white font-medium ${isSubmitting || images.length === 0
-                                                ? 'bg-zinc-600 cursor-not-allowed'
-                                                : 'bg-emerald-600 hover:bg-emerald-500'
+                                            ? 'bg-zinc-600 cursor-not-allowed'
+                                            : 'bg-emerald-600 hover:bg-emerald-500'
                                             } transition-colors`}
                                     >
-                                        {isSubmitting ? 'Submitting...' : 'List My Gaming Gear'}
+                                        {isSubmitting ? 'Mengirim...' : 'Jual Peralatan Gaming Saya'}
                                     </button>
                                 </div>
                             </form>

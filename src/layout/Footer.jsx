@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-white font-bold text-lg mb-4">BarangBekas</h3>
+            <h3 className="text-white font-bold text-lg mb-4">TechExchange</h3>
             <p className="text-gray-400 text-sm">Platform jual beli barang teknologi bekas berkualitas dengan harga terjangkau.</p>
           </div>
           <div>
