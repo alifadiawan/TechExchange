@@ -1,6 +1,12 @@
 import React from 'react'
 import App from '../App'
 
+
+import steelseries from '../assets/steelseries_nimbus.jpg'
+import switcholed from '../assets/switcholed.jpg'
+import dbegm190 from '../assets/dbegm190.jpg'
+import macbookIMG from '../assets/macbook.jpg'
+
 const LandingPage = () => {
     return (
         <App>
@@ -70,7 +76,7 @@ const LandingPage = () => {
                     {/* Product 1 */}
                     <div className="bg-zinc-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
                         <div className="relative">
-                            <img src="https://scontent.fsub6-7.fna.fbcdn.net/v/t45.5328-4/489376547_1323803232247723_1149380987790561750_n.jpg?stp=dst-jpg_p960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=247b10&_nc_eui2=AeFyMHAiY40q80OLgXpdWLCx-6imkDBPsaz7qKaQME-xrLZBGGzMq-meYCdX5CFrxModuAihSNqrMfcENWmOTDaQ&_nc_ohc=yKu9BJnwEaQQ7kNvwGenJmZ&_nc_oc=Adn2JIffnFf3uQZ49CSL-WWN4A6CWvySmbo0ZfPB-czqSh5aZaoucRYcSTWxAorJtAY&_nc_zt=23&_nc_ht=scontent.fsub6-7.fna&_nc_gid=_daL99lB30ljwb1NmrWICA&oh=00_AfIQUch04t1GBvDoRCcOc29jyn1sq9RyWb6MSj2b4NlzIQ&oe=6829A6B3" alt="Razer Blade 15" className="h-48 w-full object-cover" />
+                            <img src={steelseries} alt="Razer Blade 15" className="h-48 w-full object-cover" />
                         </div>
                         <div className="p-4">
                             <div className="flex justify-between items-start mb-2">
@@ -89,7 +95,7 @@ const LandingPage = () => {
                     </div>
                     <div className="bg-zinc-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
                         <div className="relative">
-                            <img src="https://scontent.fsub6-6.fna.fbcdn.net/v/t45.5328-4/497945418_981722160454266_34869432875288257_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=247b10&_nc_eui2=AeEVgKG2TH6Nt_m_3_7RhkAI98opwG-mQnj3yinAb6ZCeFYFEAFrg5iOoZmLvC41m4fy5KpT3xzJbu4wEwzIPZAJ&_nc_ohc=1uixMgoIA0MQ7kNvwEycqxy&_nc_oc=AdkbXfsOqlhY7IDaBZE_4LFmXPqtK78P9VfWlQ04pcXneg7pxFVfxDZ7f4NsYGFQHmc&_nc_zt=23&_nc_ht=scontent.fsub6-6.fna&_nc_gid=cOxvtcZvDOnZaeiPOf3IXA&oh=00_AfJlw28enO-pmrKtYeYVE74pC1oJn4JEcobuTDn_7x2o6Q&oe=6829B42C" alt="Razer Blade 15" className="h-48 w-full object-cover" />
+                            <img src={switcholed} alt="Razer Blade 15" className="h-48 w-full object-cover" />
                         </div>
                         <div className="p-4">
                             <div className="flex justify-between items-start mb-2">
@@ -109,7 +115,7 @@ const LandingPage = () => {
                     </div>
                     <div className="bg-zinc-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
                         <div className="relative">
-                            <img src="https://scontent.fsub6-3.fna.fbcdn.net/v/t45.5328-4/495164059_1081362597162175_4260054515771579560_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=247b10&_nc_eui2=AeFX5MQ9-DVPkJsFQ_D5GMl_psTUw0LHpoemxNTDQsemhwiAlV4QYeU6tdy0Uy7cgjnDJxprM2g2CVcCpCzS2Xtz&_nc_ohc=ERuRJRbociIQ7kNvwGVkEj7&_nc_oc=AdmE9DOaLN2cHJ2_A9eAMoF4cYnzZNTmJ-3JG9rpEfz_5gVR9OABAg88lzAhXOb3YVw&_nc_zt=23&_nc_ht=scontent.fsub6-3.fna&_nc_gid=bszuOfjiKi-_rKP3y99ZhA&oh=00_AfI2nn8qMq5d2PI9wQT9Lt0MbC9ny2B8P4WK36GayWJ5OA&oe=6829B352" alt="Razer Blade 15" className="h-48 w-full object-cover" />
+                            <img src={dbegm190} alt="Razer Blade 15" className="h-48 w-full object-cover" />
                         </div>
                         <div className="p-4">
                             <div className="flex justify-between items-start mb-2">
@@ -127,7 +133,7 @@ const LandingPage = () => {
                     </div>
                     <div className="bg-zinc-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
                         <div className="relative">
-                            <img src="https://scontent.fsub6-6.fna.fbcdn.net/v/t45.5328-4/491774810_555301883903354_3273164709764506150_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=247b10&_nc_eui2=AeGNrjFVVccmRpyvP9KVT3C0Qxo9xjr5KIBDGj3GOvkogOx9jRamSb3uI64bw8mFX8sg8a_gupqd9IEIG8Z7LnbW&_nc_ohc=GQVqy2I89uEQ7kNvwGvuFGH&_nc_oc=AdkuHbbinNoFF9cVhmxPsfwC323OGKK59m0zxbXnfm0nTjlEPOFjF1QDaI2_MoWe4F0&_nc_zt=23&_nc_ht=scontent.fsub6-6.fna&_nc_gid=sXh9IGkUnILNmlsz5Zb11g&oh=00_AfLNNTIJqGyt9ZuKhO9L6M891MZ-8xYlh4e3kJufWj29rw&oe=6829B4C6" alt="Razer Blade 15" className="h-48 w-full object-cover" />
+                            <img src={macbookIMG} alt="Razer Blade 15" className="h-48 w-full object-cover" />
                         </div>
                         <div className="p-4">
                             <div className="flex justify-between items-start mb-2">
