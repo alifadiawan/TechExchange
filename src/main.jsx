@@ -15,6 +15,7 @@ import JualBarang from './Pages/JualBarang.jsx';
 import AboutPage from './Pages/AboutPage.jsx';
 import ArtikelList from './Pages/ArtikelList.jsx';
 import ArtikelDetail from './Pages/ArtikelDetail.jsx';
+import Login from './Pages/Login.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -27,13 +28,16 @@ createRoot(document.getElementById('root')).render(
         <Route path="/listing/new-listing" element={<JualBarang />} />
         <Route path="/about-us" element={<AboutPage />} />
         <Route path="/artikel" element={<ArtikelList />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/artikel/detail/3123asa-975d-4f74-342342-27e830efe285" element={<ArtikelDetail />} />
         <Route path="/shop/detail/3e132d39-975d-4f74-9060-27e830efe285" element={<DetailShop />} />
+
 
         <Route path="/admin/dashboard" element={<DashboardAdmin />} />
         <Route path="/admin/transaksi" element={<KelolaTransaksi />} />
         <Route path="/admin/user" element={<KelolaUser />} />
         <Route path="/admin/artikel" element={<KelolaArtikel />} />
+
       </Routes>
     </BrowserRouter>
   </StrictMode>

@@ -78,6 +78,9 @@ const Navbar = () => {
                                 </svg>
                                 <span className="absolute -top-2 -right-2 bg-emerald-500 text-xs text-white font-bold rounded-full h-5 w-5 flex items-center justify-center">3</span>
                             </a>
+                            <a href="/login" className="relative text-black bg-emerald-500 p-2 rounded-md ms-5 px-5 hover:text-white">
+                                Login
+                            </a>
                         </div>
                         <div className="flex md:hidden">
                             <button
