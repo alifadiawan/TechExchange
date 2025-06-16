@@ -68,7 +68,7 @@ export default function DashboardAdmin() {
                 </nav>
 
                 {/* Stats section */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                     {stats.map((stat, index) => (
                         <div key={index} className="bg-zinc-800 p-4 rounded-xl shadow-lg border border-zinc-700 hover:border-emerald-500 transition-all">
                             <div className="flex justify-between items-center mb-2">
@@ -86,7 +86,7 @@ export default function DashboardAdmin() {
                             </div>
                         </div>
                     ))}
-                </div>
+                </div> */}
 
                 {/* Main sections */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -252,21 +252,7 @@ export default function DashboardAdmin() {
                             </a>
                         </section>
 
-                        {/* Settings shortcut */}
-                        <section className="bg-zinc-800 p-5 rounded-xl shadow-lg border border-zinc-700 hover:border-emerald-500 transition-all">
-                            <div className="flex justify-between items-center mb-3">
-                                <div className="flex items-center">
-                                    <Settings className="text-emerald-500 mr-2" size={20} />
-                                    <h2 className="text-lg font-semibold text-white">Pengaturan</h2>
-                                </div>
-                            </div>
-
-                            <p className="text-sm text-zinc-400 mb-3">Configure dashboard settings and preferences</p>
-
-                            <a href="/admin/settings" className="flex items-center justify-center w-full py-2 bg-zinc-700 rounded-lg hover:bg-zinc-600 transition-colors font-medium">
-                                Buka Pengaturan
-                            </a>
-                        </section>
+                       
                     </div>
                 </div>
         </AdminLayout>

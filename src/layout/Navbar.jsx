@@ -46,6 +46,17 @@ const Navbar = () => {
                             >
                                 Jual Barang
                             </NavLink>
+                            
+                            <NavLink
+                                to="/artikel"
+                                className={({ isActive }) =>
+                                    isActive
+                                        ? 'border-b-2 border-emerald-500 text-white px-1 pt-1 text-sm font-medium'
+                                        : 'border-transparent hover:border-gray-300 border-b-2 hover:text-gray-300 px-1 pt-1 text-sm font-medium'
+                                }
+                            >
+                                Artikel
+                            </NavLink>
 
                             <NavLink
                                 to="/about-us"
