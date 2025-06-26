@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
-import App from '../App'
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion'; // Import motion and AnimatePresence
+import App from '../App';
 
-import macbookIMG from '../assets/macbook.jpg'
-import headphone1 from '../assets/headphone1.jpg'
-import stikps4 from '../assets/stikps4.jpg'
-import psvita from '../assets/psvita.jpg'
-import asustuf from '../assets/asustuf.jpg'
-import switcholed from '../assets/switcholed.jpg'
-import stikrexus from '../assets/stikrexus.jpg'
-
+import macbookIMG from '../assets/macbook.jpg';
+import headphone1 from '../assets/headphone1.jpg';
+import stikps4 from '../assets/stikps4.jpg';
+import psvita from '../assets/psvita.jpg';
+import asustuf from '../assets/asustuf.jpg';
+import switcholed from '../assets/switcholed.jpg';
+import stikrexus from '../assets/stikrexus.jpg';
 
 const Shop = () => {
     const [activeCategory, setActiveCategory] = useState('all');
@@ -77,7 +77,7 @@ const Shop = () => {
             price: 750000,
             category: "aksesori",
             condition: "Bekas - Terawat",
-            image: "accessory-placeholder"
+            image: "accessory-placeholder" // Make sure you have a placeholder image for this
         }
     ];
 
@@ -120,121 +120,151 @@ const Shop = () => {
         }).format(price);
     };
 
+    // Animation variants for the product grid
+    const gridVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1
+            }
+        }
+    };
+
+    // Animation variants for each product card
+    const cardVariants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0 },
+        exit: { opacity: 0, y: -50 }
+    };
+
+
     return (
         <App>
             <div className="bg-zinc-800 min-h-screen">
-
-                {/* Shop Content */}
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                     {/* Filter Buttons */}
-                    <div className="flex flex-wrap justify-center gap-3 mb-8">
-                        <button
+                    <motion.div
+                        className="flex flex-wrap justify-center gap-3 mb-8"
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <motion.button
                             onClick={() => setActiveCategory('all')}
                             className={`px-4 py-2 rounded-full text-sm font-medium ${activeCategory === 'all'
                                 ? 'bg-emerald-500 text-white'
                                 : 'bg-zinc-700 text-gray-300 hover:bg-zinc-600'
                                 }`}
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
                         >
                             Semua
-                        </button>
-                        <button
-                            onClick={() => setActiveCategory('laptop')}
-                            className={`px-4 py-2 rounded-full text-sm font-medium flex items-center space-x-2 ${activeCategory === 'laptop'
-                                ? 'bg-emerald-500 text-white'
-                                : 'bg-zinc-700 text-gray-300 hover:bg-zinc-600'
-                                }`}
-                        >
-                            <span>{categoryIcons.laptop}</span>
-                            <span>Laptop</span>
-                        </button>
-                        <button
-                            onClick={() => setActiveCategory('smartphone')}
-                            className={`px-4 py-2 rounded-full text-sm font-medium flex items-center space-x-2 ${activeCategory === 'smartphone'
-                                ? 'bg-emerald-500 text-white'
-                                : 'bg-zinc-700 text-gray-300 hover:bg-zinc-600'
-                                }`}
-                        >
-                            <span>{categoryIcons.smartphone}</span>
-                            <span>Smartphone</span>
-                        </button>
-                        <button
-                            onClick={() => setActiveCategory('konsol')}
-                            className={`px-4 py-2 rounded-full text-sm font-medium flex items-center space-x-2 ${activeCategory === 'konsol'
-                                ? 'bg-emerald-500 text-white'
-                                : 'bg-zinc-700 text-gray-300 hover:bg-zinc-600'
-                                }`}
-                        >
-                            <span>{categoryIcons.konsol}</span>
-                            <span>Konsol</span>
-                        </button>
-                        <button
-                            onClick={() => setActiveCategory('aksesori')}
-                            className={`px-4 py-2 rounded-full text-sm font-medium flex items-center space-x-2 ${activeCategory === 'aksesori'
-                                ? 'bg-emerald-500 text-white'
-                                : 'bg-zinc-700 text-gray-300 hover:bg-zinc-600'
-                                }`}
-                        >
-                            <span>{categoryIcons.aksesori}</span>
-                            <span>Aksesori</span>
-                        </button>
-                    </div>
+                        </motion.button>
+                        {Object.keys(categoryIcons).map(category => (
+                            <motion.button
+                                key={category}
+                                onClick={() => setActiveCategory(category)}
+                                className={`px-4 py-2 rounded-full text-sm font-medium flex items-center space-x-2 ${activeCategory === category
+                                    ? 'bg-emerald-500 text-white'
+                                    : 'bg-zinc-700 text-gray-300 hover:bg-zinc-600'
+                                    }`}
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.9 }}
+                            >
+                                <span>{categoryIcons[category]}</span>
+                                <span className="capitalize">{category}</span>
+                            </motion.button>
+                        ))}
+                    </motion.div>
 
                     {/* Product Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                        {filteredProducts.map((product) => (
-                            <a href='/shop/detail/3e132d39-975d-4f74-9060-27e830efe285' key={product.id} className="bg-zinc-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                                <div className="h-48 bg-zinc-800 flex items-center justify-center overflow-hidden">
-                                    <img
-                                        src={product.image}
-                                        alt={product.name}
-                                        className="object-contain h-full w-full"
-                                    />
-                                </div>
-                                <div className="p-4">
-                                    <h3 className="text-white font-medium text-lg mb-1">{product.name}</h3>
-                                    <p className="text-emerald-500 font-bold text-xl mb-2">{formatPrice(product.price)}</p>
-                                    <p className="text-gray-400 text-sm mb-4">{product.condition}</p>
-                                    <div className="flex justify-between items-center">
-                                        <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-medium py-1 px-4 rounded-md text-sm">
-                                            Tambah ke Keranjang
-                                        </button>
-                                        <button className="text-gray-300 hover:text-white">
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                            </svg>
-                                        </button>
+                    <motion.div
+                        key={activeCategory} // This key is crucial for AnimatePresence to detect changes
+                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+                        variants={gridVariants}
+                        initial="hidden"
+                        animate="visible"
+                    >
+                        <AnimatePresence>
+                            {filteredProducts.map((product) => (
+                                <motion.a
+                                    href='/shop/detail/3e132d39-975d-4f74-9060-27e830efe285'
+                                    key={product.id}
+                                    className="bg-zinc-700 rounded-lg overflow-hidden shadow-lg flex flex-col"
+                                    variants={cardVariants}
+                                    exit="exit"
+                                    layout // This enables smooth re-ordering animations
+                                    whileHover={{ y: -5, boxShadow: "0px 10px 20px rgba(0,0,0,0.25)" }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <div className="h-48 bg-zinc-800 flex items-center justify-center overflow-hidden">
+                                        <motion.img
+                                            src={product.image}
+                                            alt={product.name}
+                                            className="object-contain h-full w-full"
+                                            initial={{ scale: 1.2 }}
+                                            whileHover={{ scale: 1 }}
+                                            transition={{ duration: 0.5 }}
+                                        />
                                     </div>
-                                </div>
-                            </a>
-                        ))}
-                    </div>
+                                    <div className="p-4 flex flex-col flex-grow">
+                                        <h3 className="text-white font-medium text-lg mb-1 flex-grow">{product.name}</h3>
+                                        <p className="text-emerald-500 font-bold text-xl mb-2">{formatPrice(product.price)}</p>
+                                        <p className="text-gray-400 text-sm mb-4">{product.condition}</p>
+                                        <div className="flex justify-between items-center mt-auto">
+                                            <motion.button
+                                                className="bg-emerald-500 hover:bg-emerald-600 text-white font-medium py-1 px-4 rounded-md text-sm"
+                                                whileHover={{ scale: 1.05 }}
+                                                whileTap={{ scale: 0.95 }}
+                                            >
+                                                Tambah ke Keranjang
+                                            </motion.button>
+                                            <motion.button
+                                                className="text-gray-300 hover:text-white"
+                                                whileHover={{ scale: 1.2 }}
+                                                whileTap={{ scale: 0.9 }}
+                                            >
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                </svg>
+                                            </motion.button>
+                                        </div>
+                                    </div>
+                                </motion.a>
+                            ))}
+                        </AnimatePresence>
+                    </motion.div>
                 </div>
 
                 {/* Pagination */}
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex justify-center">
-                    <nav className="flex items-center space-x-2">
-                        <a href="#" className="p-2 rounded-md bg-zinc-700 text-gray-400 hover:bg-zinc-600 hover:text-white">
+                    <motion.nav
+                        className="flex items-center space-x-2"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.5, duration: 0.5 }}
+                    >
+                        <motion.a href="#" className="p-2 rounded-md bg-zinc-700 text-gray-400 hover:bg-zinc-600 hover:text-white" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                             </svg>
-                        </a>
-                        <a href="#" className="py-2 px-4 rounded-md bg-emerald-500 text-white font-medium">1</a>
-                        <a href="#" className="py-2 px-4 rounded-md bg-zinc-700 text-gray-300 hover:bg-zinc-600 font-medium">2</a>
-                        <a href="#" className="py-2 px-4 rounded-md bg-zinc-700 text-gray-300 hover:bg-zinc-600 font-medium">3</a>
+                        </motion.a>
+                        <motion.a href="#" className="py-2 px-4 rounded-md bg-emerald-500 text-white font-medium" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>1</motion.a>
+                        <motion.a href="#" className="py-2 px-4 rounded-md bg-zinc-700 text-gray-300 hover:bg-zinc-600 font-medium" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>2</motion.a>
+                        <motion.a href="#" className="py-2 px-4 rounded-md bg-zinc-700 text-gray-300 hover:bg-zinc-600 font-medium" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>3</motion.a>
                         <span className="text-gray-500">...</span>
-                        <a href="#" className="py-2 px-4 rounded-md bg-zinc-700 text-gray-300 hover:bg-zinc-600 font-medium">10</a>
-                        <a href="#" className="p-2 rounded-md bg-zinc-700 text-gray-300 hover:bg-zinc-600 hover:text-white">
+                        <motion.a href="#" className="py-2 px-4 rounded-md bg-zinc-700 text-gray-300 hover:bg-zinc-600 font-medium" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>10</motion.a>
+                        <motion.a href="#" className="p-2 rounded-md bg-zinc-700 text-gray-300 hover:bg-zinc-600 hover:text-white" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
-                        </a>
-                    </nav>
+                        </motion.a>
+                    </motion.nav>
                 </div>
-
-                
             </div>
         </App>
     )
 }
 
-export default Shop
+export default Shop;

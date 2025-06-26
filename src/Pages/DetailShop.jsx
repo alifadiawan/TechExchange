@@ -1,16 +1,19 @@
 
 import { useState } from 'react';
-import { Star, ShoppingCart, Heart, Share2, ArrowLeft, AlertCircle, Gamepad2, Zap, BarChart4, X, MessageCircle, Send } from 'lucide-react';
+import { ShoppingCart, Share2, AlertCircle, Gamepad2, Zap, BarChart4, X, MessageCircle, Send, CpuIcon, Monitor, Wifi, Battery } from 'lucide-react';
 
 import switcholed from '../assets/switcholed.jpg'
 import switcholed2 from '../assets/switcholed2.jpg'
 import switcholed3 from '../assets/switcholed3.jpg'
 
+import steelseries from '../assets/steelseries_nimbus.jpg'
+import dbegm190 from '../assets/dbegm190.jpg'
+import macbookIMG from '../assets/macbook.jpg'
+
 import App from '../App';
 
 const DetailShop = () => {
     const [quantity, setQuantity] = useState(1);
-    const [isWishlisted, setIsWishlisted] = useState(false);
     const [activeTab, setActiveTab] = useState('specs');
     const [showModal, setShowModal] = useState(false);
 
@@ -30,14 +33,14 @@ const DetailShop = () => {
             switcholed3,
         ],
         specs: {
-            processor: "AMD Ryzen 9 5900HX, 8-core, 3.3GHz (4.6GHz boost)",
-            graphics: "NVIDIA GeForce RTX 3070 8GB GDDR6",
-            memory: "16GB DDR4-3200MHz (Upgradable to 32GB)",
-            storage: "1TB NVMe SSD",
-            display: "15.6-inch Full HD IPS, 300Hz, 3ms, 100% sRGB",
-            cooling: "ROG Intelligent Cooling with liquid metal compound",
+            processor: "NVIDIA Custom Tegra processor",
+            graphics: "NVIDIA Custom Tegra processor",
+            memory: "4 GB LPDDR4",
+            storage: "64 GB",
+            display: "Multi-touch capacitive touch screen / 7.0 inch OLED screen / 1280x720",
             battery: "90WHrs, 4-cell Li-ion",
-            ports: "3x USB 3.2 Gen 1, 1x USB-C 3.2 Gen 2, 1x HDMI 2.0b, 1x 3.5mm Audio"
+            connectivity: "Wi-Fi 5 @ 2.4/5 GHz, Bluetooth 4.1, 1 × USB-C, Headphone jack",
+            batteryLife: "Approximately 4.5 - 9 hours",
         },
         benchmarkResults: {
             "3DMark Time Spy": "9843",
@@ -103,7 +106,7 @@ const DetailShop = () => {
                             </div>
 
                             <div className="mt-6 flex items-center">
-                                <span className="text-3xl text-white font-bold">${product.price.toFixed(2)}</span>
+                                <span className="text-3xl text-white font-bold">Rp.{product.price}</span>
                             </div>
 
                             <div
@@ -122,7 +125,7 @@ const DetailShop = () => {
                                 </button>
                                 <a
                                     className="flex-1 border border-emerald-600 hover:bg-emerald-500 text-white py-3 px-6 rounded-md flex items-center justify-center transition-all"
-                                   href='/shop/cart'
+                                    href='/shop/cart'
                                 >
                                     <ShoppingCart size={20} className="mr-2" />
                                     Beli
@@ -218,14 +221,14 @@ const DetailShop = () => {
                                         </div>
                                         <div>
                                             <div className="flex items-center text-white mb-1">
-                                                {/* <CPU size={16} className="mr-2 text-emerald-500" /> */}
+                                                <CpuIcon size={16} className="mr-2 text-emerald-500" />
                                                 <h4 className="font-medium">Memory</h4>
                                             </div>
                                             <p className="text-gray-300 ml-6">{product.specs.memory}</p>
                                         </div>
                                         <div>
                                             <div className="flex items-center text-white mb-1">
-                                                {/* <CPU size={16} className="mr-2 text-emerald-500" /> */}
+                                                <CpuIcon size={16} className="mr-2 text-emerald-500" />
                                                 <h4 className="font-medium">Storage</h4>
                                             </div>
                                             <p className="text-gray-300 ml-6">{product.specs.storage}</p>
@@ -234,31 +237,24 @@ const DetailShop = () => {
                                     <div className="space-y-4">
                                         <div>
                                             <div className="flex items-center text-white mb-1">
-                                                {/* <CPU size={16} className="mr-2 text-emerald-500" /> */}
+                                                <Monitor size={16} className="mr-2 text-emerald-500" />
                                                 <h4 className="font-medium">Display</h4>
                                             </div>
                                             <p className="text-gray-300 ml-6">{product.specs.display}</p>
                                         </div>
                                         <div>
                                             <div className="flex items-center text-white mb-1">
-                                                {/* <CPU size={16} className="mr-2 text-emerald-500" /> */}
-                                                <h4 className="font-medium">Cooling</h4>
+                                                <Wifi size={16} className="mr-2 text-emerald-500" />
+                                                <h4 className="font-medium">Connectivity</h4>
                                             </div>
-                                            <p className="text-gray-300 ml-6">{product.specs.cooling}</p>
+                                            <p className="text-gray-300 ml-6">{product.specs.connectivity}</p>
                                         </div>
                                         <div>
                                             <div className="flex items-center text-white mb-1">
-                                                {/* <CPU size={16} className="mr-2 text-emerald-500" /> */}
+                                                <Battery size={16} className="mr-2 text-emerald-500" />
                                                 <h4 className="font-medium">Battery</h4>
                                             </div>
-                                            <p className="text-gray-300 ml-6">{product.specs.battery}</p>
-                                        </div>
-                                        <div>
-                                            <div className="flex items-center text-white mb-1">
-                                                {/* <CPU size={16} className="mr-2 text-emerald-500" /> */}
-                                                <h4 className="font-medium">Ports</h4>
-                                            </div>
-                                            <p className="text-gray-300 ml-6">{product.specs.ports}</p>
+                                            <p className="text-gray-300 ml-6">{product.specs.batteryLife}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -301,39 +297,82 @@ const DetailShop = () => {
                     <div className="mt-16">
                         <h2 className="text-2xl font-bold text-white mb-6">Similar Gaming Laptops</h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                            {[1, 2, 3, 4].map((item) => (
-                                <div key={item} className="bg-zinc-800 rounded-lg overflow-hidden hover:ring-1 hover:ring-emerald-500 transition-all">
-                                    <div className="h-48 bg-zinc-700">
-                                        <img
-                                            src={`/api/placeholder/280/200`}
-                                            alt={`Similar product ${item}`}
-                                            className="w-full h-full object-cover"
-                                        />
+                            {/* Product 1 */}
+                            <a href='/shop/detail/3e132d39-975d-4f74-9060-27e830efe285' className="bg-zinc-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                                <div className="relative">
+                                    <img src={steelseries} alt="Razer Blade 15" className="h-48 w-full object-cover" />
+                                </div>
+                                <div className="p-4">
+                                    <div className="flex justify-between items-start mb-2">
+                                        <h3 className="font-medium">joystick steelseries nimbus+ with apple arcade</h3>
+                                        <div className="text-emerald-500 font-bold">Rp275.000</div>
                                     </div>
-                                    <div className="p-4">
-                                        <h3 className="text-white font-medium">Used Gaming Laptop {item}</h3>
-                                        <div className="flex items-center mt-1">
-                                            <div className="flex">
-                                                {[...Array(5)].map((_, i) => (
-                                                    <Star
-                                                        key={i}
-                                                        size={14}
-                                                        fill={i < 4 ? "#10b981" : "none"}
-                                                        stroke={i < 4 ? "#10b981" : "#6b7280"}
-                                                    />
-                                                ))}
-                                            </div>
-                                            <span className="ml-1 text-xs text-gray-400">(32)</span>
-                                        </div>
-                                        <div className="mt-2 flex justify-between items-center">
-                                            <span className="text-white font-bold">${(800 + (item * 100)).toFixed(2)}</span>
-                                            <span className="text-xs bg-emerald-600/20 text-emerald-500 px-2 py-1 rounded">
-                                                Good
-                                            </span>
-                                        </div>
+                                    {/* <p class="text-gray-400 text-sm mb-4">Gaming Laptop, RTX 3070, 16GB RAM</p> */}
+                                    <div className="flex justify-between items-center">
+                                        <button className="bg-zinc-700 hover:bg-zinc-600 p-2 rounded-full">
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                            </svg>
+                                        </button>
                                     </div>
                                 </div>
-                            ))}
+                            </a>
+                            <a href='/shop/detail/3e132d39-975d-4f74-9060-27e830efe285' className="bg-zinc-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                                <div className="relative">
+                                    <img src={switcholed} alt="Razer Blade 15" className="h-48 w-full object-cover" />
+                                </div>
+                                <div className="p-4">
+                                    <div className="flex justify-between items-start mb-2">
+                                        <h3 className="font-medium">Nintendo Switch V1 OFW Joycon Original + Memori 128GB Docking Strap HDMI
+                                            Charger Original</h3>
+                                        <div className="text-emerald-500 font-bold">Rp 2.200.000</div>
+                                    </div>
+                                    {/* <p class="text-gray-400 text-sm mb-4">Gaming Laptop, RTX 3070, 16GB RAM</p> */}
+                                    <div className="flex justify-between items-center">
+                                        <button className="bg-zinc-700 hover:bg-zinc-600 p-2 rounded-full">
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href='/shop/detail/3e132d39-975d-4f74-9060-27e830efe285' className="bg-zinc-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                                <div className="relative">
+                                    <img src={dbegm190} alt="Razer Blade 15" className="h-48 w-full object-cover" />
+                                </div>
+                                <div className="p-4">
+                                    <div className="flex justify-between items-start mb-2">
+                                        <h3 className="font-medium">Hansed DBE GM190</h3>
+                                        <div className="text-emerald-500 font-bold">Rp70.000</div>
+                                    </div>
+                                    <div className="flex justify-between items-center">
+                                        <button className="bg-zinc-700 hover:bg-zinc-600 p-2 rounded-full">
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href='/shop/detail/3e132d39-975d-4f74-9060-27e830efe285' className="bg-zinc-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                                <div className="relative">
+                                    <img src={macbookIMG} alt="Razer Blade 15" className="h-48 w-full object-cover" />
+                                </div>
+                                <div className="p-4">
+                                    <div className="flex justify-between items-start mb-2">
+                                        <h3 className="font-medium">Macbook Air M1</h3>
+                                        <div className="text-emerald-500 font-bold">Rp8.000.00</div>
+                                    </div>
+                                    <div className="flex justify-between items-center">
+                                        <button className="bg-zinc-700 hover:bg-zinc-600 p-2 rounded-full">
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
